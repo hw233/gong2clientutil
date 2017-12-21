@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd /Users/gong2mac/Documents/gong2clientutil//csv2code/src/shells
+chmod +x *.sh
+./run.sh

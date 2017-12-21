@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <excel name="VIP表.xlsx">
+    <sheet>VIP表</sheet>
+    <sheet>版本记录</sheet>
+  </excel>
+  <excel name="常量表.xlsx">
+    <sheet>活动常量表</sheet>
+    <sheet>版本记录</sheet>
+    <sheet>系统常量表</sheet>
+  </excel>
+</root>

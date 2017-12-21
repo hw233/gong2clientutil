@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd /home/sa/clientutil/csv2code/src/shells
+chmod +x *.sh
+./run.sh

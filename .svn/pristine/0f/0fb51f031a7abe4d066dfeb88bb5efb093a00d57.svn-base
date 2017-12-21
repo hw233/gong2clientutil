@@ -1,0 +1,85 @@
+if (typeof jQuery !== 'undefined') {
+    (function($) {
+        $(document).ajaxStart(function() {
+            $('#spinner').fadeIn();
+        }).ajaxStop(function() {
+            $('#spinner').fadeOut();
+        });
+    })(jQuery);
+}
+
+var logPos = 0;
+var canScroll = true;
+function startMonitor(url) {
+    var _f = function() {
+        $.post(url, {pos: logPos}, function(data) {
+            if (data.success) {
+                logPos = data.pos;
+                if(data.content !== '') {
+                    $('#log_content').append(data.content.replace(/\n/g, '<br/>'));
+                    if (canScroll) {
+                        $('#log_content').scrollTop($('#log_content').prop('scrollHeight'));
+                    }
+                }
+            }
+            console.log('monitor log', logPos);
+            setTimeout(_f, 2000);
+        }).error(function() {console.log('monitor error'); setTimeout(_f, 2000);});
+    };
+    setTimeout(_f, 2000);
+}
+
+function toggleScroll(obj) {
+    canScroll = !canScroll;
+    $(obj).html(canScroll?'自动滚动':'停止滚动');
+}
+
+function onClearLog(resp) {
+    if(resp) {
+       logPos = 0;
+        $('#log_content').html('');
+        $('#log_content').scrollTop($('#log_content').prop('scrollHeight'));
+    }
+}
+
+function onExportCsv(resp) {
+    if(resp) {
+        window.alert("已提交导表请求，请检查日志！");
+    }
+}
+
+function onRestartServer(resp) {
+    if(resp) {
+        window.alert("已提交重启服务器请求，请检查日志！");
+    }
+}
+
+function onUpdateTools(resp) {
+    if(resp) {
+        window.alert("已提交更新工具请求，请检查日志！");
+    }
+}
+
+function onBuildClientScript(resp) {
+    if(resp) {
+        window.alert("已提交编译客户端脚本请求，请检查日志！");
+    }
+}
+
+function onBuildClient(resp) {
+    if(resp) {
+        window.alert("已提交编译完整客户端请求，请检查日志！");
+    }
+}
+
+function onPackRes(resp) {
+    if(resp) {
+        window.alert("已提交打包资源请求，请检查日志！");
+    }
+}
+
+function onEncodePic(resp) {
+    if(resp) {
+        window.alert("已提交打包资源请求，请检查日志！");
+    }
+}

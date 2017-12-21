@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{1E3D4F25-A771-46B5-8A47-C3CFDE306334}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TableEditor/Program.cs">
+    <Files>
+      <File FileName="TableEditor/ConfigUtils.cs" Line="9" Column="10" />
+      <File FileName="../../../../../Library/Frameworks/Mono.framework/Versions/5.2.0/lib/mono/msbuild/15.0/bin/Microsoft.Common.CurrentVersion.targets" Line="2762" Column="41" />
+      <File FileName="TableEditor/Program.cs" Line="18" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TableEditor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

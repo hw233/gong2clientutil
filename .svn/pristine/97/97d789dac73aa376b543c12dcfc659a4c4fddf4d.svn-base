@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <tablePath>D:\design</tablePath>
+  <tortoiseSvnPath>C:\Program Files\TortoiseSVN\bin</tortoiseSvnPath>
+  <svnPath>C:\Program Files\SlikSvn\bin</svnPath>
+  <pythonPath>C:\Python27</pythonPath>
+  <siteUrl>http://tools.hadoit.com:8090/gametools/design/index</siteUrl>
+</root>

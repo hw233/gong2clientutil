@@ -1,0 +1,16 @@
+E:\src\TableEditor\bin\x64\Debug\TableEditor.exe.config
+E:\src\TableEditor\obj\x64\Debug\TableEditor.csproj.ResolveComReference.cache
+E:\src\TableEditor\bin\x64\Debug\TableEditor.exe.manifest
+E:\src\TableEditor\bin\x64\Debug\TableEditor.application
+E:\src\TableEditor\bin\x64\Debug\TableEditor.exe
+E:\src\TableEditor\bin\x64\Debug\TableEditor.pdb
+E:\src\TableEditor\obj\x64\Debug\TableEditor.LogMessageDialog.resources
+E:\src\TableEditor\obj\x64\Debug\TableEditor.Properties.Resources.resources
+E:\src\TableEditor\obj\x64\Debug\TableEditor.MainForm.resources
+E:\src\TableEditor\obj\x64\Debug\TableEditor.SearchTableForm.resources
+E:\src\TableEditor\obj\x64\Debug\TableEditor.SettingDialog.resources
+E:\src\TableEditor\obj\x64\Debug\TableEditor.csproj.GenerateResource.Cache
+E:\src\TableEditor\obj\x64\Debug\TableEditor.exe.manifest
+E:\src\TableEditor\obj\x64\Debug\TableEditor.application
+E:\src\TableEditor\obj\x64\Debug\TableEditor.exe
+E:\src\TableEditor\obj\x64\Debug\TableEditor.pdb

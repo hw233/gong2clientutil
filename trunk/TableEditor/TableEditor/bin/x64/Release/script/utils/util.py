@@ -1,0 +1,242 @@
+# -*- coding: UTF-8 -*-
+'''
+Created on 2013-11-27
+
+@author: bezy
+'''
+
+from utils.scriptRunningEnv import ScriptRunningEnv
+
+class Util(object):
+    JAVA_PACKAGE_NAME = 'com.gamejelly.gong2.config.data'
+    JAVA_FOLDER = 'java'
+    LUA_FOLDER = 'lua'
+    CHAR_FOLDER = 'char'
+    CONST_DATA_KEY = '常量表标识'
+    SPECIAL_CHECK_RULE_KEY = '交互检查规则'
+    EXPORT_RULE_KEY = '导出规则'
+    COLUMN_NAME_KEY = '表头'
+    KEY_IDENTIFY = '关键字标识'
+    UNIQUE_KEY = '唯一标识'
+    NOT_EMPTY_KEY = '非空标识'
+    REGEXP_CHECK_KEY = '检查规则'
+    FIELD_NAME_KEY = '变量名称'
+    TYPE_KEY = '变量类型'
+    CS_SELECTOR_KEY = '变量空间'
+    BEGIN_KEY = 'BEGIN'
+    FILE_IDENTIFY = 'FILE_IDENTIFY'
+    FILE_EXPORT_NAME = 'FILE_EXPORT_NAME'
+    DATA_KEY = 'DATA'
+
+    TYPE_BOOL = 'B'
+    TYPE_INTEGER = 'I'
+    TYPE_FLOAT = 'F'
+    TYPE_STRING = 'S'
+    TYPE_EVAL = 'E'
+    TYPE_FORMULA = 'G'
+    DEFAULT_LEVEL = 10
+
+    DUMMY_LOCAL = {}
+    TABLE_CACHE = {}
+    CURRENT_TABLE_NAME = None
+    CHAR_SET_MAP = {}
+
+    @staticmethod
+    def value2pystr(value):
+        if isinstance(value, str):
+            v = Util.str_to_py(value)
+        elif isinstance(value, dict):
+            v = Util.dict_to_py(value, False)
+        elif isinstance(value, list):
+            v = Util.list_to_py(value)
+        elif isinstance(value, tuple):
+            v = Util.tuple_to_py(value)
+        else:
+            v = str(value)
+        return v
+
+    @staticmethod
+    def str_to_py(value):
+        text = value.replace('"', '\\"')
+        text = text.replace('\n', '\\n')
+        text = '"' + text + '"'
+        return text
+
+    @staticmethod
+    def dict_to_py(value):
+        text = '{'
+        l = []
+        for k, v in sorted(value.iteritems()):
+            l.append(Util.value2pystr(k) + ': ' + Util.value2pystr(v))
+        text += ', '.join(l)
+        text += '}'
+        return text
+
+    @staticmethod
+    def list_to_py(value):
+        text = '['
+        l = []
+        for x in value:
+            l.append(Util.value2pystr(x))
+        text += ', '.join(l)
+        text += ']'
+        return text
+
+    @staticmethod
+    def tuple_to_py(value):
+        text = '('
+        l = []
+        for x in value:
+            l.append(Util.value2pystr(x))
+        text += ', '.join(l)
+        if len(l) != 1:
+            text += ')'
+        else:
+            text += ', )'
+        return text
+
+    @staticmethod
+    def value2luastr(value):
+        if value is None:
+            v = 'nil'
+        elif isinstance(value, str):
+            v = Util.str_to_lua(value)
+        elif isinstance(value, bool):
+            v = Util.bool_to_lua(value)
+        elif isinstance(value, dict):
+            v = Util.dict_to_lua(value)
+        elif isinstance(value, list) or isinstance(value, tuple):
+            v = Util.list_to_lua(value)
+        else:
+            v = str(value)
+        return v
+
+    @staticmethod
+    def str_to_lua(value):
+        text = value.replace('"', '\\"')
+        text = text.replace('\n', '\\n')
+        text = '"' + text + '"'
+        return text
+
+    @staticmethod
+    def bool_to_lua(value):
+        return 'true' if value else 'false'
+
+    @staticmethod
+    def dict_to_lua(value):
+        text = '{'
+        l = []
+        for k, v in sorted(value.iteritems()):
+            l.append('[' + Util.value2luastr(k) + '] = ' + Util.value2luastr(v))
+        text += ', '.join(l)
+        text += '}'
+        return text
+
+    @staticmethod
+    def list_to_lua(value):
+        text = '{'
+        l = []
+        for x in value:
+            l.append(Util.value2luastr(x))
+        text += ', '.join(l)
+        text += '}'
+        return text
+
+    @staticmethod
+    def value2javastr(value):
+        if value is None:
+            v = 'null'
+        elif isinstance(value, str):
+            v = Util.str_to_java(value)
+        elif isinstance(value, bool):
+            v = Util.bool_to_java(value)
+        elif isinstance(value, dict):
+            v = Util.dict_to_java(value)
+        elif isinstance(value, list) or isinstance(value, tuple):
+            v = Util.list_to_java(value)
+        elif isinstance(value, float):
+            v = str(value) + 'f'
+        elif isinstance(value, int):
+            if value > 0x7fffffff or value < -0x80000000:
+                v = str(value) + 'l'
+            else:
+                v = str(value)
+        else:
+            v = str(value)
+        return v
+
+    @staticmethod
+    def str_to_java(value):
+        text = value.replace('"', '\\"')
+        text = text.replace('\n', '\\n')
+        text = '"' + text + '"'
+        return text
+
+    @staticmethod
+    def bool_to_java(value):
+        return 'true' if value else 'false'
+
+    @staticmethod
+    def dict_to_java(value):
+        text = 'map('
+        l = []
+        for k, v in sorted(value.iteritems()):
+            l.append(Util.value2javastr(k) + ', ' + Util.value2javastr(v))
+        text += ', '.join(l)
+        text += ')'
+        return text
+
+    @staticmethod
+    def list_to_java(value):
+        text = 'list('
+        l = []
+        for x in value:
+            l.append(Util.value2javastr(x))
+        text += ', '.join(l)
+        text += ')'
+        return text
+
+    @staticmethod
+    def getValueByType(iType, iExp):
+        if iType == Util.TYPE_BOOL:
+            if len(iExp.strip()) == 0:
+                return False
+            return bool(int(iExp))
+        if iType == Util.TYPE_INTEGER:
+            if len(iExp.strip()) == 0:
+                return 0
+            else:
+                return int(iExp)
+        elif iType == Util.TYPE_FLOAT:
+            if len(iExp.strip()) == 0:
+                return 0.0
+            else:
+                return float(iExp)
+        elif iType == Util.TYPE_EVAL:
+            if len(iExp.strip()) == 0:
+                return None
+            instance = ScriptRunningEnv.getInstance()
+            ret = instance.execute(iExp, Util.DUMMY_LOCAL)
+            if ret is None:
+                raise ValueError
+            else:
+                return ret
+        elif iType == Util.TYPE_FORMULA:
+            formulaList = []
+            if len(iExp.strip()) == 0:
+                return formulaList
+            try:
+                iExp = iExp.strip()
+                max_lv = Util.DEFAULT_LEVEL
+                if '\n' in iExp:
+                    values = iExp.split('\n')
+                    max_lv = int(values[0])
+                    iExp = values[-1]
+                for lv in xrange(max_lv):
+                    lv += 1
+                    formulaList.append(eval(iExp))
+            except:
+                raise ValueError
+            else:
+                return formulaList
+        return iExp

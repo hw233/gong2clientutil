@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "远程编译客户端脚本..."
+param="$*"
+
+client="gongclient"
+tools="gongtools"
+sdk="$1"
+
+script_file="/Users/GJMAC-1/Documents/gongclient/trunk/gongtools/tools/alldone.sh"
+sshpass -pgong!@# ssh GJMAC-1@10.10.10.251 "security unlock-keychain -p gong!@# '/Users/GJMAC-1/Library/Keychains/login.keychain'; $script_file script $param"
+
+# cd ~/Documents/gongclient/trunk/gongtools/tools
+# ./alldone.sh script $param
+
+sleep 1
+echo "客户端脚本更新完毕，可以直接打开手机APP更新!"

@@ -1,0 +1,26 @@
+body {
+    padding-top: 50px;
+}
+
+.spinner {
+    background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
+    height: 16px;
+    width: 16px;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-indent: -9999px;
+    z-index: 2000;
+}
+
+.m_design {
+    padding: 0;
+}
+
+.m_design .log{
+    padding: 10px;
+    height: 500px;
+    overflow-x: auto;
+    overflow-y: scroll; 
+}

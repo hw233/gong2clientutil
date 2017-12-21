@@ -1,0 +1,27 @@
+[Log] 2015-05-09 10:45:20
+测试导表...
+测试导表可能需要几分钟,请稍等...
+
+C:\Python27\python.exe: can't open file 'csv2code.pyc': [Errno 2] No such file or directory
+
+测试导表出错，请检查数据表！
+
+
+[Log] 2015-05-09 10:45:51
+测试导表...
+测试导表可能需要几分钟,请稍等...
+
+[INFO] 读取csv开始... 
+[INFO] 读取csv D:/design/csv/\VIP表.csv
+[INFO] 读取csv D:/design/csv/\活动常量表.csv
+[INFO] 读取csv D:/design/csv/\系统常量表.csv
+[INFO] 读取csv完成！ 
+[INFO] 检查数据表开始... 
+[INFO] 检查数据表 ["VIP表"]
+[INFO] 检查数据表完成：全部正确！ 
+[INFO] 导出代码开始... 
+[INFO] 导出代码 vip_data
+[INFO] 导出代码完成！ 
+测试导表成功，可以提交SVN！
+
+
