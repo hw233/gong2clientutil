@@ -13,8 +13,6 @@
                 <button id="buildClientScript" class="btn btn-primary" type="button" onclick="${remoteFunction(action:'buildClientScript',onSuccess:'onBuildClientScript(data)',onFailure:'onBuildClientScript(false)')}">编译客户端脚本</button>
                 <button id="buildClient" class="btn btn-danger" type="button" onclick="${remoteFunction(action:'buildClient',onSuccess:'onBuildClient(data)',onFailure:'onBuildClient(false)')}">编译完整客户端</button>
                 <button id="restartServer" class="btn btn-danger" type="button" onclick="${remoteFunction(action:'restartServer',onSuccess:'onRestartServer(data)',onFailure:'onRestartServer(false)')}">重启服务器</button>
-                <button id="updateHDServer" class="btn btn-danger" type="button" onclick="${remoteFunction(action:'updateHDServer',onSuccess:'OnUpdateHDServer(data)',onFailure:'OnUpdateHDServer(false)')}">更新公网HD</button>
-                 <button id="updateAndroidTestServer" class="btn btn-danger" type="button" onclick="${remoteFunction(action:'updateAndroidTestServer',onSuccess:'OnUpdateAndroidTestServer(data)',onFailure:'OnUpdateAndroidTestServer(false)')}">更新安卓测试服</button>
             </p>
             <p>
                 <button id="packUi" class="btn btn-info" type="button" onclick="${remoteFunction(action:'packRes',params:'\'res=compress\'',onSuccess:'onPackRes(data)',onFailure:'onPackRes(false)')}">压缩图片</button>

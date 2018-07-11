@@ -61,12 +61,6 @@ function OnUpdateHDServer(resp) {
     }
 }
 
-function OnUpdateAndroidTestServer(resp) {
-    if(resp) {
-        window.alert("已提交更新安卓测试服务器请求，请检查日志！");
-    }
-}
-
 function onRestartLoginAndGms(resp) {
     if(resp) {
         window.alert("已提交重启登录服和GMS请求，请检查日志！");

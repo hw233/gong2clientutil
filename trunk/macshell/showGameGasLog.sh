@@ -1,0 +1,1 @@
+tail -f /gamejelly_gong2/deploy_gong2_game/logs/gas

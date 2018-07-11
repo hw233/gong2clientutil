@@ -61,12 +61,6 @@ function OnUpdateHDServer(resp) {
     }
 }
 
-function OnUpdateAndroidTestServer(resp) {
-    if(resp) {
-        window.alert("已提交更新安卓测试服务器请求，请检查日志！");
-    }
-}
-
 function onRestartLoginAndGms(resp) {
     if(resp) {
         window.alert("已提交重启登录服和GMS请求，请检查日志！");
@@ -108,11 +102,5 @@ function onPackRes(resp) {
 function onEncodePic(resp) {
     if(resp) {
         window.alert("已提交打包资源请求，请检查日志！");
-    }
-}
-
-function onTransformPicPKM(resp) {
-    if(resp) {
-        window.alert("已提交转换资源请求，请检查日志！");
     }
 }

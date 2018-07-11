@@ -1,0 +1,9 @@
+
+ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/
+ export JRE_HOME=$JAVA_HOME/jre
+ export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+ java -version
+
+cd /Users/gong2mac/Documents/gong2clientutil/trunk/gametools
+./grailsw run-app

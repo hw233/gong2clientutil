@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_HOME=/usr/java/jdk1.8.0_152
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/
 export JRE_HOME=$JAVA_HOME/jre
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
@@ -10,7 +10,7 @@ java -version
 
 sleep 1
 echo "更新服务器..."
-cd /home/sa/gong2server/trunk/gong2-login
+cd /Users/gong2mac/Documents/gong2server/trunk/gong2-login
 svn up
 echo "编译Login..."
 ant
@@ -23,7 +23,7 @@ sleep 1
 
 echo "更新GMS..."
 
-cd /home/sa/gong2-gms/trunk
+cd /Users/gong2mac/Documents/gong2-gms/trunk
 svn up
 
 
@@ -31,7 +31,7 @@ svn up
 
 echo "编译Gms..."
 
-cd /home/sa/gong2-gms/trunk/tools
+cd /Users/gong2mac/Documents/gong2-gms/trunk/tools
 chmod +x *.sh
 ./build-test.sh
 
@@ -39,6 +39,5 @@ sleep 1
 
 
 echo "重启..."
-service tomcat stop ;
-ps -ef | grep -v grep | grep "/usr/local/tomcat" | awk '{print $2}' | xargs kill -9;
-service tomcat start
+shutdown.sh
+startup.sh
