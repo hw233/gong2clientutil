@@ -72,6 +72,8 @@ if [ $new_code -gt 0 ]; then
     $SVN add $CODE_FILE --force -q
     $SVN commit $DATA_CLIENT_DIR/*.lua -m "#misc commit client design data"
     $SVN commit $DATA_SERVER_DIR/*.java -m "#misc commit server design data"
+    ./copyToGit.sh
+#    release/copyToGit.sh
     echo "svn ci 完毕,导表成功!"
 else
     echo "没有任何文件需要处理,导表结束!"
